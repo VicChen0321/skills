@@ -82,8 +82,8 @@ User-invoked only: reach for it over plain `interrogate` when the plan or design
 
 #### writing-great-skills
 
-Applies craft principles for writing effective Claude Code skills: predictability over stochastic output, progressive disclosure, tight descriptions, right-sized splitting, and pruning discipline.
-Model-invoked, so it triggers automatically whenever a skill, agent, or command file is being written or edited, in this repo or any other project.
+Vocabulary and craft principles for writing and reviewing skills: invocation mode, information hierarchy, when to split, pruning discipline, leading words.
+User-invoked only - a `GLOSSARY.md` sibling file defines every bolded term once, so `SKILL.md` can use them without re-explaining. Reach for it by name when writing or reviewing a `SKILL.md`.
 
 #### interrogate
 
@@ -93,6 +93,10 @@ Triggers on "grill me," "stress-test this," "poke holes in this," or any request
 ## Design
 
 See `docs/specs/2026-07-31-ai-sdlc-plugin-design.md` for the full design rationale, including why the repo is structured as a single self-referencing plugin and marketplace, and `docs/plans/2026-07-31-ai-sdlc-plugin-implementation-plan.md` for how it was built.
+
+## Acknowledgments
+
+Several skills in this repo take inspiration from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT License), an existing public skills collection covering similar ground. Each skill here is an independent adaptation, not a copy.
 
 ## License
 
