@@ -10,7 +10,7 @@ It is installed as a Claude Code plugin, distributed via a self-hosted plugin ma
 The skills follow the Software Development Life Cycle (SDLC), adapted for an AI-assisted workflow (AI-SDLC): idea capture, planning, implementation, review, testing, and release each get their own skill.
 This spec covers the repo/plugin scaffolding and the first five skills: the pipeline `to-spec` -> `to-ticket` -> `to-implement` -> `to-code-review`, plus `tdd`, a technique skill that `to-implement` drives at each seam.
 
-Design for `to-ticket`, `to-implement`, and `to-code-review` draws on [mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/engineering), an existing public skills collection covering similar SDLC ground: its tracer-bullet ticket format, its seam-based TDD loop, and its rule that refactoring belongs to review rather than the red-green cycle, all carried over here.
+`to-ticket` uses a tracer-bullet ticket format, `tdd` uses a seam-based red-green loop, and refactoring belongs to `to-code-review` rather than the red-green cycle itself.
 
 ## Goals
 
