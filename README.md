@@ -31,11 +31,13 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 | `tdd` | (driven by to-implement, per seam) | This iteration |
 | `to-implement` | ticket -> code + tests | This iteration |
 | `to-code-review` | code -> improved code | This iteration |
+| `domain-modeling` | terminology -> CONTEXT.md / ADRs | This iteration |
+| `interrogate-with-docs` | plan or design -> sharpened design + docs | This iteration |
 | `to-test` | code -> verification/test coverage | Future |
 | `to-ship` | reviewed code -> release/deploy | Future |
 
 Pipeline-stage skills follow a `to-<noun>` naming convention, each name describing the artifact the skill produces from the previous stage's output.
-`tdd` is the exception: it's a technique skill another skill drives, not a stage that hands off its own artifact.
+`tdd`, `domain-modeling`, and `interrogate-with-docs` are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
 
 ### to-spec
 
@@ -62,6 +64,16 @@ Runs the full test suite once every seam is green, then hands off to `to-code-re
 
 Reviews a ticket's implementation using the `quality-reviewer` agent, scoped to reuse, simplification, efficiency, and clarity only, and applies fixes directly.
 Explicitly does not check correctness or whether the implementation satisfies its acceptance criteria - that stays a separate concern.
+
+### domain-modeling
+
+Builds and sharpens a project's domain model: challenges terminology conflicts, sharpens vague terms, stress-tests concepts with edge-case scenarios, and cross-references against the actual code.
+Writes results inline to `CONTEXT.md` (or a `CONTEXT-MAP.md` plus per-context `CONTEXT.md` files in multi-context repos) and to `docs/adr/`, and only on demand, never batched.
+
+### interrogate-with-docs
+
+Combines `interrogate`'s one-question-at-a-time questioning with `domain-modeling`'s documentation discipline in a single session.
+User-invoked only: reach for it over plain `interrogate` when the plan or design being sharpened deserves a lasting record.
 
 ### Productivity
 
