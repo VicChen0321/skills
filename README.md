@@ -5,14 +5,12 @@ Each skill is one stage of the software development life cycle, adapted for an A
 
 ## Install
 
-Once this repo has a GitHub remote:
-
 ```
-/plugin marketplace add <you>/skills
+/plugin marketplace add VicChen0321/skills
 /plugin install ai-sdlc
 ```
 
-For local development, before pushing anywhere, load the plugin directly from a working copy for the duration of a session:
+For local development, load the plugin directly from a working copy for the duration of a session instead:
 
 ```
 claude --plugin-dir .
