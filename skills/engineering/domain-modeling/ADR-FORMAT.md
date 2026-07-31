@@ -1,6 +1,6 @@
 # ADR format
 
-ADRs live in `docs/adr/`, named sequentially: `0001-slug.md`, `0002-slug.md`. Create the directory only when the first ADR is actually needed.
+ADRs live in `docs/adr/`, named sequentially: `0001-slug.md`, `0002-slug.md`. In a multi-context repo this exists in two places: at the root for system-wide decisions, and inside each context (for example `src/ordering/docs/adr/`) for decisions specific to that context. Create the directory only when the first ADR is actually needed.
 
 **Minimal template**, and often all that's needed:
 
