@@ -1,0 +1,14 @@
+{
+  "name": "ai-sdlc-marketplace",
+  "description": "Marketplace for Vic's AI-SDLC skills plugin",
+  "owner": { "name": "Vic Chen", "email": "victor72441299@gmail.com" },
+  "plugins": [
+    {
+      "name": "ai-sdlc",
+      "description": "AI-assisted SDLC skills for Claude Code",
+      "version": "0.1.0",
+      "source": "./",
+      "author": { "name": "Vic Chen", "email": "victor72441299@gmail.com" }
+    }
+  ]
+}
