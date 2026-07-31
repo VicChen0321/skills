@@ -35,13 +35,29 @@ Pipeline-stage skills follow a `to-<noun>` naming convention, each name describi
 
 ### to-spec
 
+Turns a raw idea or feature request into a written, approved spec through a short interview.
+Explores the target project's context first, asks clarifying questions one at a time, and writes the result to `docs/ai-sdlc/specs/`.
+
 ### to-ticket
+
+Decomposes an approved spec into tracer-bullet tickets: narrow, independently demoable vertical slices, each sized to fit a single `to-implement` session.
+Each ticket declares what blocks it, so the set of ready-to-start work is always visible.
 
 ### tdd
 
+Drives a single red-green cycle at a named seam: one failing test, then the minimal code to pass it.
+Refactoring is deliberately excluded here; that's `to-code-review`'s job once the code is green.
+This one breaks the `to-<noun>` naming pattern on purpose - it's a technique another skill drives, not a stage that hands off its own artifact.
+
 ### to-implement
 
+Implements a ticket's described behavior as working code, driving `tdd` at each seam rather than writing tests or implementation directly.
+Runs the full test suite once every seam is green, then hands off to `to-code-review`.
+
 ### to-code-review
+
+Reviews a ticket's implementation using the `quality-reviewer` agent, scoped to reuse, simplification, efficiency, and clarity only, and applies fixes directly.
+Explicitly does not check correctness or whether the implementation satisfies its acceptance criteria - that stays a separate concern.
 
 ## Design
 
