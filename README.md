@@ -20,6 +20,10 @@ claude --plugin-dir .
 
 ## Skills
 
+Skills are organized by category, one subdirectory under `skills/` per category, matching the sections below.
+
+### Engineering
+
 | Skill | Input -> Output | Status |
 |---|---|---|
 | `to-spec` | idea -> spec | This iteration |
@@ -58,6 +62,18 @@ Runs the full test suite once every seam is green, then hands off to `to-code-re
 
 Reviews a ticket's implementation using the `quality-reviewer` agent, scoped to reuse, simplification, efficiency, and clarity only, and applies fixes directly.
 Explicitly does not check correctness or whether the implementation satisfies its acceptance criteria - that stays a separate concern.
+
+### Productivity
+
+| Skill | Purpose | Status |
+|---|---|---|
+| `writing-great-skills` | craft principles for writing effective skills | This iteration |
+
+#### writing-great-skills
+
+Applies craft principles for writing effective Claude Code skills: predictability over stochastic output, progressive disclosure, tight descriptions, right-sized splitting, and pruning discipline.
+Model-invoked, so it triggers automatically whenever a skill, agent, or command file is being written or edited, in this repo or any other project.
+Complements `skill-creator` (the process of drafting, testing, and iterating a skill) rather than replacing it; this one is the quality bar the draft gets held to.
 
 ## Design
 

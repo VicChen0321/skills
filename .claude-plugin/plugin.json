@@ -1,11 +1,11 @@
 {
   "name": "ai-sdlc",
-  "description": "AI-assisted SDLC skills for Claude Code: spec, ticket, TDD, implement, and code review, with test/ship stages to come",
-  "version": "0.1.0",
+  "description": "AI-assisted SDLC skills for Claude Code: spec, ticket, TDD, implement, and code review, plus productivity skills like writing-great-skills",
+  "version": "0.2.0",
   "author": { "name": "Vic Chen", "email": "victor72441299@gmail.com" },
   "homepage": "https://github.com/<your-github-username>/skills",
   "repository": "https://github.com/<your-github-username>/skills",
   "license": "MIT",
-  "keywords": ["skills", "sdlc", "spec", "ticket", "tdd", "code-review", "planning", "workflow"],
-  "skills": ["./skills/engineering/"]
+  "keywords": ["skills", "sdlc", "spec", "ticket", "tdd", "code-review", "planning", "workflow", "productivity"],
+  "skills": ["./skills/engineering/", "./skills/productivity/"]
 }
