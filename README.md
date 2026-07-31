@@ -68,19 +68,17 @@ Explicitly does not check correctness or whether the implementation satisfies it
 | Skill | Purpose | Status |
 |---|---|---|
 | `writing-great-skills` | craft principles for writing effective skills | This iteration |
-| `grilling` | stress-test a plan, decision, or idea before acting on it | This iteration |
+| `interrogate` | rigorously question a plan, decision, or idea before acting on it | This iteration |
 
 #### writing-great-skills
 
 Applies craft principles for writing effective Claude Code skills: predictability over stochastic output, progressive disclosure, tight descriptions, right-sized splitting, and pruning discipline.
 Model-invoked, so it triggers automatically whenever a skill, agent, or command file is being written or edited, in this repo or any other project.
-Complements `skill-creator` (the process of drafting, testing, and iterating a skill) rather than replacing it; this one is the quality bar the draft gets held to.
 
-#### grilling
+#### interrogate
 
-Stress-tests a plan, decision, or idea through one question at a time: facts get researched, not asked; decisions get asked, one at a time, each with a recommended answer; nothing gets acted on until there's a confirmed shared understanding.
-Triggers on "grill me," "stress-test this," or any request to sense-check thinking before committing to it.
-Lighter than `to-spec`: no document produced, and it works on any decision, not just features.
+Rigorously questions a plan, decision, or idea, one question at a time: facts get researched, not asked; decisions get asked, one at a time, each with a recommended answer; nothing gets acted on until there's a confirmed shared understanding.
+Triggers on "grill me," "stress-test this," "poke holes in this," or any request to sense-check thinking before committing to it.
 
 ## Design
 
