@@ -44,12 +44,12 @@ Create files lazily - only when there's something to write.
 - Challenge the existing glossary: flag it immediately when what the user says conflicts with documented terminology.
 - Sharpen vague terms: when vocabulary is overloaded or unclear, propose a precise canonical term.
 - Stress-test with scenarios: probe relationships and force precision about concept boundaries with concrete edge cases.
-- Cross-reference code: verify stated behavior against the actual implementation, and surface contradictions.
+- Cross-reference code: verify stated behavior against the actual implementation. When they contradict, propose which side should change - update the docs to match the code, or flag the code as behaving unexpectedly - and let the user decide.
 - Update inline: capture a resolved term or decision the moment it's resolved, never batched at the end.
 
 **Where things go:**
 
 - Domain vocabulary: `CONTEXT.md`. Format and file-finding rules in `CONTEXT-FORMAT.md`.
-- Architecture decisions: `docs/adr/` - root for system-wide, per-context for context-specific. Format and when-to-write-one rules in `ADR-FORMAT.md`.
+- Architecture decisions: `docs/adr/`. Format, placement, and when-to-write-one rules in `ADR-FORMAT.md`.
 
 Read the relevant format file before writing to either location for the first time in a session.
