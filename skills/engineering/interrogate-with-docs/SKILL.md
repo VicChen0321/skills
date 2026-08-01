@@ -13,3 +13,7 @@ Ask one question at a time, per `interrogate`: split facts (go research them) fr
 While that interview runs, apply `domain-modeling`'s discipline to what comes out of it.
 
 Use this instead of plain `interrogate` when the plan or design being sharpened is worth a lasting record: new architecture, a bounded context taking shape, a decision that would confuse someone in six months if it weren't written down.
+
+## Handoff
+
+Once a shared understanding is confirmed, hand off to `to-spec` in the same session. There's nothing left to interview about; `to-spec` can go straight to drafting from what was just settled.

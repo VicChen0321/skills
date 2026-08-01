@@ -41,6 +41,7 @@ Pipeline-stage skills follow a `to-<noun>` naming convention, each name describi
 
 Turns a raw idea or feature request into a written, approved spec through a short interview.
 Explores the target project's context first, asks clarifying questions one at a time, and writes the result to `docs/ai-sdlc/specs/`.
+If `interrogate-with-docs` just ran in the same session, skips re-interviewing and drafts straight from what it already settled.
 
 ### to-ticket
 
@@ -71,7 +72,7 @@ Writes results inline to `CONTEXT.md` (or a `CONTEXT-MAP.md` plus per-context `C
 ### interrogate-with-docs
 
 Combines `interrogate`'s one-question-at-a-time questioning with `domain-modeling`'s documentation discipline in a single session.
-User-invoked only: reach for it over plain `interrogate` when the plan or design being sharpened deserves a lasting record.
+User-invoked only: reach for it over plain `interrogate` when the plan or design being sharpened deserves a lasting record. Hands off to `to-spec` once a shared understanding is confirmed.
 
 ### Productivity
 
