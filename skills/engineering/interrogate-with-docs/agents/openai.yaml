@@ -1,0 +1,5 @@
+interface:
+  display_name: "Interrogate with Docs"
+  short_description: "Grill a design and write its docs as you go"
+policy:
+  allow_implicit_invocation: false

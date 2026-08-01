@@ -1,0 +1,5 @@
+interface:
+  display_name: "Resolving Merge Conflicts"
+  short_description: "Resolve a merge or rebase conflict by tracing intent"
+policy:
+  allow_implicit_invocation: false

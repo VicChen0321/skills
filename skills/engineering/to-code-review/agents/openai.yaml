@@ -1,0 +1,3 @@
+interface:
+  display_name: "To Code Review"
+  short_description: "Review a diff on quality and spec compliance, then commit"

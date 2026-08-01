@@ -1,9 +1,11 @@
 # ai-sdlc
 
-AI-assisted SDLC skills for Claude Code.
+AI-assisted SDLC skills, shipped as a plugin for both Claude Code and Codex.
 Each skill is one stage of the software development life cycle, adapted for an AI-assisted workflow: capture an idea, break it into tickets, implement each ticket test-first, then clean it up.
 
 ## Install
+
+### Claude Code
 
 ```
 /plugin marketplace add VicChen0321/skills
@@ -14,6 +16,13 @@ For local development, load the plugin directly from a working copy for the dura
 
 ```
 claude --plugin-dir .
+```
+
+### Codex
+
+```
+codex plugin marketplace add VicChen0321/skills
+codex plugin add ai-sdlc@ai-sdlc-marketplace
 ```
 
 ## Skills
@@ -35,10 +44,7 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 | `to-test` | code -> verification/test coverage | Future |
 | `to-ship` | reviewed code -> release/deploy | Future |
 
-Pipeline-stage skills follow a `to-<noun>` naming convention, each name describing the artifact the skill produces from the previous stage's output.
-`tdd`, `domain-modeling`, `interrogate-with-docs`, and `resolving-merge-conflicts` are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
-
-`to-spec`, `to-ticket`, and `to-implement` are user-invoked only: each starts a phase you decide to kick off by name, not one the model fires on its own partway through a conversation. `tdd`, `domain-modeling`, and `to-code-review` stay model-invoked, since they need to be reachable both directly and from inside another skill's own process. `resolving-merge-conflicts` is also user-invoked: nothing else in this repo needs to reach it internally, so it defaults to zero context load per our own `writing-great-skills` rule.
+See [CLAUDE.md](CLAUDE.md) for the naming convention behind `to-<noun>` skill names and the rules for which skills are user-invoked versus model-invoked.
 
 ### to-spec
 

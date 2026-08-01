@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writing Great Skills"
+  short_description: "Craft principles for writing and reviewing skills"
+policy:
+  allow_implicit_invocation: false

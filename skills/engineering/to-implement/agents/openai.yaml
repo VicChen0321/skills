@@ -1,0 +1,5 @@
+interface:
+  display_name: "To Implement"
+  short_description: "Implement a ticket's behavior, driven by TDD"
+policy:
+  allow_implicit_invocation: false
