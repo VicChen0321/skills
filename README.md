@@ -37,6 +37,8 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 Pipeline-stage skills follow a `to-<noun>` naming convention, each name describing the artifact the skill produces from the previous stage's output.
 `tdd`, `domain-modeling`, and `interrogate-with-docs` are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
 
+`to-spec`, `to-ticket`, and `to-implement` are user-invoked only: each starts a phase you decide to kick off by name, not one the model fires on its own partway through a conversation. `tdd`, `domain-modeling`, and `to-code-review` stay model-invoked, since they need to be reachable both directly and from inside another skill's own process.
+
 ### to-spec
 
 Turns a raw idea or feature request into a written, approved spec through a short interview.
@@ -51,6 +53,7 @@ Each ticket declares what blocks it, so the set of ready-to-start work is always
 ### tdd
 
 Drives a single red-green cycle at a named seam: one failing test, then the minimal code to pass it.
+Reads `CONTEXT.md` first, when it exists, so test names match the project's domain vocabulary; see `tests.md` and `mocking.md` for worked examples.
 Refactoring is deliberately excluded here; that's `to-code-review`'s job once the code is green.
 This one breaks the `to-<noun>` naming pattern on purpose - it's a technique another skill drives, not a stage that hands off its own artifact.
 
@@ -61,8 +64,8 @@ Runs the full test suite once every seam is green, then hands off to `to-code-re
 
 ### to-code-review
 
-Reviews a ticket's implementation using the `quality-reviewer` agent, scoped to reuse, simplification, efficiency, and clarity only, and applies fixes directly.
-Explicitly does not check correctness or whether the implementation satisfies its acceptance criteria - that stays a separate concern.
+Reviews a ticket's implementation on two independent axes at once, using two parallel subagents: `quality-reviewer` (reuse, simplification, efficiency, clarity, repo conventions) and `spec-reviewer` (does the diff actually satisfy the ticket's acceptance criteria and spec). Both report findings only; neither edits anything.
+Commits the finished work regardless of what the reports found, since findings are advisory, not a merge gate, then updates the ticket to `Done` with both reports attached.
 
 ### domain-modeling
 

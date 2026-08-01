@@ -1,6 +1,7 @@
 ---
 name: to-implement
-description: Implement a ticket's described behavior as working code, driving the tdd skill at each seam, then handing off to to-code-review. Use when the user points at a ticket file or says "implement ticket NN," "let's build this ticket."
+description: Implement a ticket's described behavior as working code, driving the tdd skill at each seam, then handing off to to-code-review.
+disable-model-invocation: true
 ---
 
 # to-implement

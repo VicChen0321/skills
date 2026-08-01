@@ -1,6 +1,7 @@
 ---
 name: to-ticket
-description: Decompose an approved spec into tracer-bullet tickets - narrow, independently demoable vertical slices with declared blocking order. Use once a spec exists and the user wants it broken into actionable work items, or says "break this into tickets," "what's the backlog for this."
+description: Decompose an approved spec into tracer-bullet tickets - narrow, independently demoable vertical slices with declared blocking order.
+disable-model-invocation: true
 ---
 
 # to-ticket

@@ -18,8 +18,8 @@ Also directly invocable for any ad hoc test-first work outside the ticket pipeli
 
 ## Process
 
-1. Confirm the seam: the public interface or observable behavior boundary under test. If it isn't already obvious from the caller's context, ask: "What's the public interface, and which seam should we test?"
-2. Write one failing test at that seam. It should read like a specification of behavior (for example "user can check out with a valid cart"), not assert on internal implementation details, and its expected value must not be derived from the same logic as the code under test - that's a tautological assertion, and it can never fail.
+1. Confirm the seam: the public interface or observable behavior boundary under test. If it isn't already obvious from the caller's context, ask: "What's the public interface, and which seam should we test?" If `CONTEXT.md` exists in the project, read it first, so the seam's name and the test's vocabulary match the project's established domain language rather than inventing new terms for the same concept.
+2. Write one failing test at that seam. It should read like a specification of behavior (for example "user can check out with a valid cart"), not assert on internal implementation details, and its expected value must not be derived from the same logic as the code under test - that's a tautological assertion, and it can never fail. See `tests.md` for worked examples and `mocking.md` for what to mock and what not to.
 3. Run the test. Confirm it fails for the expected reason, not an unrelated error like a typo or a missing import.
 4. Write the minimal code that makes the test pass. Nothing extra: no speculative generalization, no unrequested refactor. Minimal means minimal, even if a "better" version is obvious.
 5. Run the test again. Confirm it passes.

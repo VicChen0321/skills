@@ -1,6 +1,7 @@
 ---
 name: to-spec
-description: Turn a raw idea or feature request into a written, approved spec through a short interview. Use when the user describes a new feature, change, or idea and hasn't written down what "done" looks like - phrases like "let's build X," "I want to add Y," "spec out Z."
+description: Turn a raw idea or feature request into a written, approved spec through a short interview.
+disable-model-invocation: true
 ---
 
 # to-spec
