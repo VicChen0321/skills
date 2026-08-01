@@ -31,13 +31,14 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 | `to-code-review` | code -> improved code | This iteration |
 | `domain-modeling` | terminology -> CONTEXT.md / ADRs | This iteration |
 | `interrogate-with-docs` | plan or design -> sharpened design + docs | This iteration |
+| `resolving-merge-conflicts` | conflicted merge/rebase -> resolved, checked, committed | This iteration |
 | `to-test` | code -> verification/test coverage | Future |
 | `to-ship` | reviewed code -> release/deploy | Future |
 
 Pipeline-stage skills follow a `to-<noun>` naming convention, each name describing the artifact the skill produces from the previous stage's output.
-`tdd`, `domain-modeling`, and `interrogate-with-docs` are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
+`tdd`, `domain-modeling`, `interrogate-with-docs`, and `resolving-merge-conflicts` are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
 
-`to-spec`, `to-ticket`, and `to-implement` are user-invoked only: each starts a phase you decide to kick off by name, not one the model fires on its own partway through a conversation. `tdd`, `domain-modeling`, and `to-code-review` stay model-invoked, since they need to be reachable both directly and from inside another skill's own process.
+`to-spec`, `to-ticket`, and `to-implement` are user-invoked only: each starts a phase you decide to kick off by name, not one the model fires on its own partway through a conversation. `tdd`, `domain-modeling`, and `to-code-review` stay model-invoked, since they need to be reachable both directly and from inside another skill's own process. `resolving-merge-conflicts` is also user-invoked: nothing else in this repo needs to reach it internally, so it defaults to zero context load per our own `writing-great-skills` rule.
 
 ### to-spec
 
@@ -76,6 +77,11 @@ Writes results inline to `CONTEXT.md` (or a `CONTEXT-MAP.md` plus per-context `C
 
 Combines `interrogate`'s one-question-at-a-time questioning with `domain-modeling`'s documentation discipline in a single session.
 User-invoked only: reach for it over plain `interrogate` when the plan or design being sharpened deserves a lasting record. Hands off to `to-spec` once a shared understanding is confirmed.
+
+### resolving-merge-conflicts
+
+Resolves a git merge or rebase conflict by tracing the intent behind each conflicting side first, rather than mechanically picking one.
+Runs the project's checks before considering a conflict resolved, and refuses to invent behavior neither side asked for or reach for `--abort` to escape a hard one.
 
 ### Productivity
 
