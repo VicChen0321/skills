@@ -33,6 +33,7 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 
 | Skill | Input -> Output | Status |
 |---|---|---|
+| `setup-issue-tracker` | (one-time, before the first `to-spec`) | This iteration |
 | `to-spec` | idea -> spec | This iteration |
 | `to-ticket` | spec -> tickets | This iteration |
 | `tdd` | (driven by to-implement, per seam) | This iteration |
@@ -46,10 +47,15 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 
 See [CLAUDE.md](CLAUDE.md) for the naming convention behind `to-<noun>` skill names and the rules for which skills are user-invoked versus model-invoked.
 
+### setup-issue-tracker
+
+Configures, once per project, where `to-spec`, `to-ticket`, `to-implement`, and `to-code-review` publish specs and tickets and track their status: GitHub Issues, local markdown under `docs/ai-sdlc/` (the default if this skill is never run), or a freeform description of anything else, like Jira or Linear.
+User-invoked only - run it once before the first `to-spec` in a project that wants something other than local markdown.
+
 ### to-spec
 
 Turns a raw idea or feature request into a written, approved spec through a short interview.
-Explores the target project's context first, asks clarifying questions one at a time, and writes the result to `docs/ai-sdlc/specs/`.
+Explores the target project's context first, asks clarifying questions one at a time, and publishes the result to whichever tracker `setup-issue-tracker` configured (local markdown under `docs/ai-sdlc/specs/` by default).
 If `interrogate-with-docs` just ran in the same session, skips re-interviewing and drafts straight from what it already settled.
 
 ### to-ticket

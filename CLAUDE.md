@@ -13,12 +13,12 @@ Introduce one only when a real draft or deprecated skill needs excluding, not in
 ## Naming
 
 Pipeline-stage skills follow a `to-<noun>` naming convention, each name describing the artifact the skill produces from the previous stage's output.
-`tdd`, `domain-modeling`, `interrogate-with-docs`, `resolving-merge-conflicts`, and the `productivity/` skills are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
+`tdd`, `domain-modeling`, `interrogate-with-docs`, `resolving-merge-conflicts`, `setup-issue-tracker`, and the `productivity/` skills are exceptions: technique and utility skills other work draws on, not stages that hand off an artifact to the next stage in sequence.
 
 ## Invocation mode
 
 Every skill is either user-invoked (reachable only by the human typing its name) or model-invoked (reachable by model or user).
-User-invoked skills set `disable-model-invocation: true` in `SKILL.md` frontmatter: currently `to-spec`, `to-ticket`, `to-implement`, `interrogate-with-docs`, `resolving-merge-conflicts`, and `writing-great-skills`.
+User-invoked skills set `disable-model-invocation: true` in `SKILL.md` frontmatter: currently `to-spec`, `to-ticket`, `to-implement`, `interrogate-with-docs`, `resolving-merge-conflicts`, `setup-issue-tracker`, and `writing-great-skills`.
 Everything else stays model-invoked, since something else needs to reach it directly from inside its own process, e.g. `to-implement` driving `tdd`, or `to-code-review` firing off a ticket's status.
 
 This repo supports two agent harnesses, Claude Code and Codex, so invocation mode must be mirrored in both.

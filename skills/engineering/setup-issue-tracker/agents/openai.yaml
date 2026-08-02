@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Issue Tracker"
+  short_description: "Configure where specs and tickets are tracked"
+policy:
+  allow_implicit_invocation: false

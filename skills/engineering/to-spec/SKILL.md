@@ -18,13 +18,16 @@ Phrases like "let's build X," "I want to add Y," "spec out Z."
 
 ## Process
 
-1. Explore the target project's context before asking anything: read the README, recent commits, and any existing code relevant to the idea. Don't ask the user something the codebase already answers.
+1. Explore the target project's context before asking anything: read the README, recent commits, and any existing code relevant to the idea, plus `docs/ai-sdlc/issue-tracker.md` if it exists to learn where the spec will be published. Default to local markdown when that file doesn't exist - see `setup-issue-tracker`. Don't ask the user something the codebase already answers.
 2. Ask clarifying questions one at a time. Prefer multiple-choice where it fits, since it's faster to answer than an open-ended question. Cover purpose, constraints, and success criteria before moving on. Skip this step entirely if `interrogate-with-docs` just ran in this session on the same topic - treat what it settled, and anything it wrote to `CONTEXT.md` or an ADR, as already-known context. Only ask about something that's still genuinely unresolved.
 3. Propose 2-3 approaches with tradeoffs. Lead with a recommendation and explain why, don't just list options neutrally.
 4. Present the design in sections, scaled to their complexity: a couple of sentences for a straightforward section, more for a nuanced one. Get approval on each section before moving to the next, so a wrong turn gets caught early rather than after the whole spec is written.
-5. Write the approved spec to `docs/ai-sdlc/specs/YYYY-MM-DD-<topic>-spec.md` in the target project, not in this plugin's own repo.
-6. Run a self-review pass on the written file: no placeholders or TBDs, no internal contradictions between sections, the scope is right for a single `to-ticket` pass afterward (if it covers multiple independent subsystems, say so and suggest splitting it), and no requirement is ambiguous enough to be read two ways.
-7. Ask the user to review the written spec file before moving on. Wait for their answer; don't assume approval just because you didn't hear an objection to an earlier section.
+5. Publish the approved spec per the backend named in `docs/ai-sdlc/issue-tracker.md`, not in this plugin's own repo:
+   - **Local** (default): write `docs/ai-sdlc/specs/YYYY-MM-DD-<topic>-spec.md` in the target project.
+   - **GitHub**: `gh issue create --label spec --title "[Spec] <topic>" --body "..."` using the template below as the body.
+   - **Other**: follow the workflow described in `docs/ai-sdlc/issue-tracker.md`.
+6. Run a self-review pass on the published spec: no placeholders or TBDs, no internal contradictions between sections, the scope is right for a single `to-ticket` pass afterward (if it covers multiple independent subsystems, say so and suggest splitting it), and no requirement is ambiguous enough to be read two ways.
+7. Ask the user to review the published spec before moving on. Wait for their answer; don't assume approval just because you didn't hear an objection to an earlier section.
 
 ## Spec document template
 
