@@ -21,33 +21,36 @@ Every skill is either user-invoked (reachable only by the human typing its name)
 User-invoked skills set `disable-model-invocation: true` in `SKILL.md` frontmatter: currently `to-spec`, `to-ticket`, `to-implement`, `interrogate-with-docs`, `resolving-merge-conflicts`, `setup-issue-tracker`, and `writing-great-skills`.
 Everything else stays model-invoked, since something else needs to reach it directly from inside its own process, e.g. `to-implement` driving `tdd`, or `to-code-review` firing off a ticket's status.
 
-This repo supports two agent harnesses, Claude Code and Codex, so invocation mode must be mirrored in both.
-Every skill carries an `agents/openai.yaml` beside its `SKILL.md`, holding Codex UI metadata (`interface.display_name`, `interface.short_description`).
-A user-invoked skill's `agents/openai.yaml` also sets `policy.allow_implicit_invocation: false`, Codex's analog of `disable-model-invocation: true`.
-Keep the two flags in sync: a skill is user-invoked in both harnesses or in neither.
+This repo supports three agent harnesses: Claude Code, Codex, and Pi.
+Claude Code and Pi both read `disable-model-invocation` from `SKILL.md` frontmatter.
+Every skill also carries an `agents/openai.yaml` beside its `SKILL.md`, holding Codex UI metadata (`interface.display_name`, `interface.short_description`).
+A user-invoked skill's `agents/openai.yaml` sets `policy.allow_implicit_invocation: false`, Codex's analog of `disable-model-invocation: true`.
+Keep the frontmatter and Codex policy in sync: a skill is user-invoked in all three harnesses or in none.
 
 ## Distribution
 
-This repo ships as a plugin in two harnesses:
+This repo ships in three harnesses:
 
 - **Claude Code** - `.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json`.
   `skills` is `["./skills/engineering/", "./skills/productivity/"]`.
 - **Codex** - `.codex-plugin/plugin.json` + `.agents/plugins/marketplace.json`.
   `skills` is `"./skills/"`; Codex's manifest only accepts a single path string, not an array.
-  A single path works here because every skill under `skills/` ships, with no non-promoted bucket to exclude.
+- **Pi** - `package.json` is a Pi package manifest.
+  `pi.skills` is `["./skills"]`, so users can install the repository with `pi install git:github.com/VicChen0321/skills`.
 
-Both manifests point at category directories, not individual skills.
+Each manifest points at category directories or their common `skills/` parent, not individual skills.
+A common parent works because every skill under `skills/` ships, with no non-promoted bucket to exclude.
 Adding a new skill under an existing category needs no manifest edit, only the new skill folder plus a README entry.
-Bump both `.claude-plugin/plugin.json`'s and `.codex-plugin/plugin.json`'s `version` together on any change that ships.
+Bump `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `package.json`, and the Claude marketplace entry to the same version on any change that ships.
 Claude Code uses the plugin version to decide when installed users see an update.
 
-`AGENTS.md` is a symlink to this file, so Codex reads the same conventions Claude Code does.
+`AGENTS.md` is a symlink to this file, so Codex and Pi read the same conventions Claude Code does.
 
 ## Two different `agents/` folders
 
 Don't confuse them:
 
-- Repo-root `agents/` (`agents/quality-reviewer.md`, `agents/spec-reviewer.md`) holds Claude Code **subagents**, the reviewers `to-code-review` spawns via the `Agent` tool.
+- Repo-root `agents/` (`agents/quality-reviewer.md`, `agents/spec-reviewer.md`) holds Claude Code **subagents** and the review rubrics `to-code-review` uses for harnesses without subagents.
 - Each skill's own `<skill>/agents/openai.yaml` holds **Codex metadata** for that one skill.
 
 They share a folder name at different depths in the tree; they are not the same mechanism.

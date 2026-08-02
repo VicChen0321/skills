@@ -1,6 +1,6 @@
 ---
 name: writing-great-skills
-description: Vocabulary and craft principles for writing and reviewing Claude Code skills. Reference for tightening a SKILL.md, choosing invocation mode, or deciding what to split or prune.
+description: Vocabulary and craft principles for writing and reviewing agent skills. Reference for tightening a SKILL.md, choosing invocation mode, or deciding what to split or prune.
 disable-model-invocation: true
 ---
 
@@ -18,7 +18,7 @@ A skill can be found two ways, and each has a cost attached.
 
 Make it **model-invoked** and it carries a live description the agent scans every session, whether or not the skill ever runs - that's **context load**, paid continuously in exchange for the agent (or another skill) being able to reach it without anyone asking by name.
 
-Make it **user-invoked** instead (`disable-model-invocation: true`) and that per-session cost disappears, but a new one appears: **cognitive load**, the burden of a person having to remember the skill exists at all and call it by name when needed.
+Make it **user-invoked** instead (`disable-model-invocation: true`, plus equivalent harness metadata when required) and that per-session cost disappears, but a new one appears: **cognitive load**, the burden of a person having to remember the skill exists at all and call it by name when needed.
 
 Default to user-invoked. Reserve model-invoked for cases where nothing else can reach the skill without it announcing itself. Once enough user-invoked skills pile up that nobody can hold the full list in their head, build a **router**: a single user-invoked skill whose whole job is pointing at the others.
 

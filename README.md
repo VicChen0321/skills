@@ -1,6 +1,6 @@
 # ai-sdlc
 
-AI-assisted SDLC skills, shipped as a plugin for both Claude Code and Codex.
+AI-assisted SDLC skills, shipped for Claude Code, Codex, and Pi.
 Each skill is one stage of the software development life cycle, adapted for an AI-assisted workflow: capture an idea, break it into tickets, implement each ticket test-first, then clean it up.
 
 ## Install
@@ -23,6 +23,19 @@ claude --plugin-dir .
 ```
 codex plugin marketplace add VicChen0321/skills
 codex plugin add ai-sdlc@ai-sdlc-marketplace
+```
+
+### Pi
+
+```
+pi install git:github.com/VicChen0321/skills
+```
+
+Skills are then available as `/skill:<name>`, for example `/skill:to-spec`.
+For local development, load a working copy for one session without installing it:
+
+```
+pi -e .
 ```
 
 ## Skills
@@ -77,7 +90,9 @@ Runs the full test suite once every seam is green, then hands off to `to-code-re
 
 ### to-code-review
 
-Reviews a ticket's implementation on two independent axes at once, using two parallel subagents: `quality-reviewer` (reuse, simplification, efficiency, clarity, repo conventions) and `spec-reviewer` (does the diff actually satisfy the ticket's acceptance criteria and spec). Both report findings only; neither edits anything.
+Reviews a ticket's implementation on two independent axes: `quality-reviewer` (reuse, simplification, efficiency, clarity, repo conventions) and `spec-reviewer` (does the diff actually satisfy the ticket's acceptance criteria and spec).
+It runs them in parallel when the harness supports subagents and as two isolated sequential passes otherwise.
+Both report findings only; neither edits anything.
 Commits the finished work regardless of what the reports found, since findings are advisory, not a merge gate, then updates the ticket to `Done` with both reports attached.
 
 ### domain-modeling

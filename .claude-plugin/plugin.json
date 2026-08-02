@@ -1,7 +1,7 @@
 {
   "name": "ai-sdlc",
   "description": "AI-assisted SDLC skills for Claude Code: spec, ticket, TDD, implement, code review, domain modeling, plus productivity skills like writing-great-skills and interrogate",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "author": { "name": "Vic Chen", "email": "victor72441299@gmail.com" },
   "homepage": "https://github.com/VicChen0321/skills",
   "repository": "https://github.com/VicChen0321/skills",
