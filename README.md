@@ -55,8 +55,11 @@ Skills are organized by category, one subdirectory under `skills/` per category,
 | `domain-modeling` | terminology -> CONTEXT.md / ADRs | This iteration |
 | `interrogate-with-docs` | plan or design -> sharpened design + docs | This iteration |
 | `resolving-merge-conflicts` | conflicted merge/rebase -> resolved, checked, committed | This iteration |
-| `to-test` | code -> verification/test coverage | Future |
-| `to-ship` | reviewed code -> release/deploy | Future |
+| `codebase-design` | (shared vocabulary, used by other skills) | This iteration |
+| `improve-architecture` | codebase -> deepening candidates + decisions | This iteration |
+
+There is no `to-test` or `to-ship` stage, and none is planned: `to-implement` already drives `tdd` at every seam, so test coverage lands as part of implementation, and release/deploy varies too much by project to generalize into a skill.
+`to-code-review` is the pipeline's last stage.
 
 See [CLAUDE.md](CLAUDE.md) for the naming convention behind `to-<noun>` skill names and the rules for which skills are user-invoked versus model-invoked.
 
@@ -109,6 +112,17 @@ User-invoked only: reach for it over plain `interrogate` when the plan or design
 
 Resolves a git merge or rebase conflict by tracing the intent behind each conflicting side first, rather than mechanically picking one.
 Runs the project's checks before considering a conflict resolved, and refuses to invent behavior neither side asked for or reach for `--abort` to escape a hard one.
+
+### codebase-design
+
+Shared vocabulary for designing deep modules: module, interface, depth, seam, adapter, leverage, locality, plus the deletion test for telling a module that's earning its keep from one that's just a pass-through.
+Model-invoked - `improve-architecture` reaches for it directly, and any other skill discussing a module's interface can pull it in the same way.
+
+### improve-architecture
+
+Scans a codebase (or a user-named area) for deepening opportunities and renders them as a self-contained HTML report - one card per candidate, before/after diagrams, a recommendation strength - opened locally, never written into the repo.
+Once a candidate is picked, hands off to `interrogate` to work through it and to `domain-modeling` to keep `CONTEXT.md`/ADRs current as decisions land.
+User-invoked only - reach for it by name for a structured architecture pass before a big refactor, not for routine changes.
 
 ### Productivity
 

@@ -1,6 +1,6 @@
 {
   "name": "ai-sdlc",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "AI-assisted SDLC skills for Claude Code, Codex, and Pi",
   "author": {
     "name": "Vic Chen",

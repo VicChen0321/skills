@@ -1,0 +1,5 @@
+interface:
+  display_name: "Improve Architecture"
+  short_description: "Find and work through architecture deepening candidates"
+policy:
+  allow_implicit_invocation: false

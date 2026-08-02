@@ -32,4 +32,4 @@ A ticket's status is `In Review`, or the user asks to review recent changes.
 
 ## Handoff
 
-None yet. `to-test` and `to-ship` are future work.
+None. `to-code-review` is the last stage of the pipeline.

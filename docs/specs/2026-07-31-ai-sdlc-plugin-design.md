@@ -24,7 +24,8 @@ This spec covers the repo/plugin scaffolding and the first five skills: the pipe
 ## Non-goals (for this iteration)
 
 - No external tracker integration (GitHub Issues, Jira, Linear). Tickets are local markdown files only.
-- No `to-test` / `to-ship` skills yet. The structure anticipates them; this spec does not design them.
+- No `to-test` skill. `to-implement` already drives `tdd` at every seam, so test coverage lands as part of implementation; a separate verification stage would duplicate that.
+- No `to-ship` skill. Release/deploy is too project-specific to generalize into a skill and isn't planned.
 - `to-code-review` does not check correctness or logic bugs. It is scoped to reuse, simplification, efficiency, and clarity only. Correctness review remains a separate, later concern.
 - No CHANGELOG.md. Git history is the changelog at this repo size.
 - No cross-machine sync mechanism beyond normal git clone + plugin install.
@@ -50,7 +51,7 @@ skills/                                    # repo root = plugin root
 │       │   └── SKILL.md
 │       ├── to-code-review/
 │       │   └── SKILL.md
-│       └── (future) to-test/, to-ship/
+│       └── ...
 ├── agents/
 │   └── quality-reviewer.md                # subagent used by to-code-review
 ├── docs/
@@ -257,7 +258,7 @@ This is deliberately not a correctness or spec-compliance review; that stays out
 4. Re-run the full test suite after fixes are applied. If a test that passed before the fixes now fails, revert that specific fix rather than the whole diff.
 5. Update the ticket's `Status` to `Done` and summarize what changed.
 
-**Handoff:** none yet. `to-test` and `to-ship` are future work (see Roadmap).
+**Handoff:** none. `to-code-review` is the last stage of the pipeline (see Roadmap).
 
 ## Agent: quality-reviewer
 
@@ -297,10 +298,10 @@ Pipeline-stage skills follow a `to-<noun>` naming convention, each name describi
 | `tdd` | (driven by to-implement, per seam) | This iteration |
 | `to-implement` | ticket -> code + tests | This iteration |
 | `to-code-review` | code -> improved code | This iteration |
-| `to-test` | code -> verification/test coverage | Future |
-| `to-ship` | reviewed code -> release/deploy | Future |
 
-Future skills also live under `skills/engineering/`, with `plugin.json`'s `skills` array already pointing at that directory, so adding them requires no manifest changes beyond version bumps.
+There is no `to-test` or `to-ship` stage, and none is planned.
+`to-implement` already drives `tdd` at every seam, so verification is part of implementation rather than a separate stage; `to-code-review` is the pipeline's last stage.
+Release/deploy varies too much by project to generalize into a skill.
 
 ## Testing / Verification Plan
 
